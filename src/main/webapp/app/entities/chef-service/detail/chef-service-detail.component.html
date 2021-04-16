@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="chefService">
+      <h2 data-cy="chefServiceDetailsHeading"><span jhiTranslate="gestionDemandeApp.chefService.detail.title">Chef Service</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ chefService.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.chefService.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ chefService.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.chefService.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ chefService.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.chefService.sexe">Sexe</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'gestionDemandeApp.EnumSexe.' + chefService.sexe }}">{{ chefService.sexe }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.chefService.email">Email</span></dt>
+        <dd>
+          <span>{{ chefService.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.chefService.tel">Tel</span></dt>
+        <dd>
+          <span>{{ chefService.tel }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.chefService.user">User</span></dt>
+        <dd>
+          <span>{{ chefService.user?.id }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/chef-service', chefService.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

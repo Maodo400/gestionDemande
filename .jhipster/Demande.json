@@ -1,0 +1,64 @@
+{
+  "name": "Demande",
+  "fields": [
+    {
+      "fieldName": "statut",
+      "fieldType": "StatusDemande",
+      "fieldValues": "Ok,En_cours"
+    },
+    {
+      "fieldName": "dateDemande",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lieu",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "duree",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "priorite",
+      "fieldType": "EnumPriorite",
+      "fieldValues": "Pas_Urgent,Urgent,Peu_Urgent"
+    },
+    {
+      "fieldName": "causeDefaillance",
+      "fieldType": "EnumCause",
+      "fieldValues": "Usure_Normale,Defaut_D_Utilisateur,Defaut_Produit,Autres_A_Preciser"
+    },
+    {
+      "fieldName": "autresCauses",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "departement",
+      "fieldType": "EnumDepartement",
+      "fieldValues": "Genie_Civile,Genie_Informatique,Genie_Mecanique,Batiment_Direction,LPAO,LMAGI,CRENT,Literal8,Genie_Chimique,Genie_Electrique,Gestion,Ressources_Humaines,Caisse,Autres"
+    },
+    {
+      "fieldName": "typeDefaillance",
+      "fieldType": "EnumService",
+      "fieldValues": "Maconnerie,Electricite,Climatisation,Plomberie"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "demande",
+      "relationshipName": "client"
+    }
+  ],
+  "entityTableName": "demande",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210415201323"
+}

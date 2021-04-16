@@ -1,0 +1,35 @@
+{
+  "name": "Materiel",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "quantityUse",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "quantityStock",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tache",
+      "otherEntityRelationshipName": "materiel",
+      "relationshipName": "tache"
+    }
+  ],
+  "entityTableName": "materiel",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210415201325"
+}

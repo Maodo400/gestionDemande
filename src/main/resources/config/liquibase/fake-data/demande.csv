@@ -1,0 +1,11 @@
+id;statut;date_demande;lieu;duree;priorite;cause_defaillance;autres_causes;departement;type_defaillance
+1;Ok;2021-04-15T00:24:01;ROI Sleek deposit;91509;Urgent;Defaut_D_Utilisateur;bifurcated explicit SDD;Genie_Chimique;Maconnerie
+2;En_cours;2021-04-15T17:19:12;object-oriented;55423;Urgent;Defaut_Produit;Paraguay connecting;Gestion;Maconnerie
+3;En_cours;2021-04-15T12:09:02;Cross-platform;15632;Peu_Urgent;Defaut_D_Utilisateur;Concrete;Genie_Electrique;Maconnerie
+4;En_cours;2021-04-15T07:34:24;RAM Soft utilize;6172;Urgent;Defaut_Produit;a a;LPAO;Climatisation
+5;Ok;2021-04-15T04:36:20;a Sleek viral;58359;Urgent;Defaut_D_Utilisateur;Towels program Borders;Gestion;Climatisation
+6;En_cours;2021-04-15T05:29:23;Wooden Buckinghamshire;42816;Peu_Urgent;Autres_A_Preciser;Automotive Superviseur;Literal8;Maconnerie
+7;En_cours;2021-04-15T13:34:35;client-server Royale;44715;Urgent;Defaut_Produit;lavender;Autres;Plomberie
+8;En_cours;2021-04-15T00:55:27;SQL Car;11650;Urgent;Defaut_Produit;Directeur microchip dynamic;Ressources_Humaines;Climatisation
+9;En_cours;2021-04-15T19:26:32;Incredible;63332;Peu_Urgent;Defaut_Produit;hard;Autres;Maconnerie
+10;Ok;2021-04-15T04:31:07;multimedia;76379;Urgent;Defaut_D_Utilisateur;b tertiary;Genie_Informatique;Climatisation

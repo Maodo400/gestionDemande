@@ -1,0 +1,29 @@
+{
+  "gestionDemandeApp": {
+    "chefService": {
+      "home": {
+        "title": "ChefServices",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Chef Service",
+        "createOrEditLabel": "Créer ou éditer un Chef Service",
+        "notFound": "Aucun Chef Service trouvé"
+      },
+      "created": "Un nouveau Chef Service a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Chef Service avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Chef Service avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Chef Service {{ id }} ?"
+      },
+      "detail": {
+        "title": "Chef Service"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "sexe": "Sexe",
+      "email": "Email",
+      "tel": "Tel",
+      "user": "User"
+    }
+  }
+}

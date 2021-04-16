@@ -1,0 +1,140 @@
+<div>
+  <h2 id="page-heading" data-cy="DemandeHeading">
+    <span jhiTranslate="gestionDemandeApp.demande.home.title">Demandes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="gestionDemandeApp.demande.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        *jhiHasAnyAuthority="'ROLE_USER'"
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-demande"
+        [routerLink]="['/demande/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="gestionDemandeApp.demande.home.createLabel"> Create a new Demande </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="demandes?.length === 0">
+    <span jhiTranslate="gestionDemandeApp.demande.home.notFound">No demandes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="demandes && demandes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="statut">
+            <span jhiTranslate="gestionDemandeApp.demande.statut">Statut</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateDemande">
+            <span jhiTranslate="gestionDemandeApp.demande.dateDemande">Date Demande</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lieu">
+            <span jhiTranslate="gestionDemandeApp.demande.lieu">Lieu</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="duree">
+            <span jhiTranslate="gestionDemandeApp.demande.duree">Duree</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="priorite">
+            <span jhiTranslate="gestionDemandeApp.demande.priorite">Priorite</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="causeDefaillance">
+            <span jhiTranslate="gestionDemandeApp.demande.causeDefaillance">Cause Defaillance</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="autresCauses">
+            <span jhiTranslate="gestionDemandeApp.demande.autresCauses">Autres Causes</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="departement">
+            <span jhiTranslate="gestionDemandeApp.demande.departement">Departement</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="typeDefaillance">
+            <span jhiTranslate="gestionDemandeApp.demande.typeDefaillance">Type Defaillance</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="client.id">
+            <span jhiTranslate="gestionDemandeApp.demande.client">Client</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let demande of demandes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/demande', demande.id, 'view']">{{ demande.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'gestionDemandeApp.StatusDemande.' + demande.statut }}">{{ demande.statut }}</td>
+          <td>{{ demande.dateDemande | formatMediumDatetime }}</td>
+          <td>{{ demande.lieu }}</td>
+          <td>{{ demande.duree }}</td>
+          <td jhiTranslate="{{ 'gestionDemandeApp.EnumPriorite.' + demande.priorite }}">{{ demande.priorite }}</td>
+          <td jhiTranslate="{{ 'gestionDemandeApp.EnumCause.' + demande.causeDefaillance }}">{{ demande.causeDefaillance }}</td>
+          <td>{{ demande.autresCauses }}</td>
+          <td jhiTranslate="{{ 'gestionDemandeApp.EnumDepartement.' + demande.departement }}">{{ demande.departement }}</td>
+          <td jhiTranslate="{{ 'gestionDemandeApp.EnumService.' + demande.typeDefaillance }}">{{ demande.typeDefaillance }}</td>
+          <td>
+            <div *ngIf="demande.client">
+              <a [routerLink]="['/client', demande.client?.id, 'view']">{{ demande.client?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/demande', demande.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                *jhiHasAnyAuthority="'ROLE_USER'"
+                type="submit"
+                [routerLink]="['/demande', demande.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" *jhiHasAnyAuthority="'ROLE_ADMIN'" (click)="delete(demande)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="demandes && demandes.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

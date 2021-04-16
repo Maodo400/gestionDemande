@@ -1,0 +1,33 @@
+{
+  "gestionDemandeApp": {
+    "demande": {
+      "home": {
+        "title": "Demandes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Demande",
+        "createOrEditLabel": "Create or edit a Demande",
+        "notFound": "No Demandes found"
+      },
+      "created": "A new Demande is created with identifier {{ param }}",
+      "updated": "A Demande is updated with identifier {{ param }}",
+      "deleted": "A Demande is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Demande {{ id }}?"
+      },
+      "detail": {
+        "title": "Demande"
+      },
+      "id": "ID",
+      "statut": "Statut",
+      "dateDemande": "Date Demande",
+      "lieu": "Lieu",
+      "duree": "Duree",
+      "priorite": "Priorite",
+      "causeDefaillance": "Cause Defaillance",
+      "autresCauses": "Autres Causes",
+      "departement": "Departement",
+      "typeDefaillance": "Type Defaillance",
+      "client": "Client"
+    }
+  }
+}

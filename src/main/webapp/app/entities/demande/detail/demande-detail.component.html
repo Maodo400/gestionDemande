@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="demande">
+      <h2 data-cy="demandeDetailsHeading"><span jhiTranslate="gestionDemandeApp.demande.detail.title">Demande</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ demande.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.demande.statut">Statut</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'gestionDemandeApp.StatusDemande.' + demande.statut }}">{{ demande.statut }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.demande.dateDemande">Date Demande</span></dt>
+        <dd>
+          <span>{{ demande.dateDemande | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.demande.lieu">Lieu</span></dt>
+        <dd>
+          <span>{{ demande.lieu }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.demande.duree">Duree</span></dt>
+        <dd>
+          <span>{{ demande.duree }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.demande.priorite">Priorite</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'gestionDemandeApp.EnumPriorite.' + demande.priorite }}">{{ demande.priorite }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.demande.causeDefaillance">Cause Defaillance</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'gestionDemandeApp.EnumCause.' + demande.causeDefaillance }}">{{ demande.causeDefaillance }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.demande.autresCauses">Autres Causes</span></dt>
+        <dd>
+          <span>{{ demande.autresCauses }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.demande.departement">Departement</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'gestionDemandeApp.EnumDepartement.' + demande.departement }}">{{ demande.departement }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.demande.typeDefaillance">Type Defaillance</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'gestionDemandeApp.EnumService.' + demande.typeDefaillance }}">{{ demande.typeDefaillance }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.demande.client">Client</span></dt>
+        <dd>
+          <div *ngIf="demande.client">
+            <a [routerLink]="['/client', demande.client?.id, 'view']">{{ demande.client?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/demande', demande.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+{
+  "name": "Tache",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "etat",
+      "fieldType": "EtatTache",
+      "fieldValues": "Nouvelle,En_Cours,Fini"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "materiel",
+      "otherEntityRelationshipName": "tache",
+      "relationshipName": "materiel"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "agent",
+      "otherEntityRelationshipName": "tache",
+      "relationshipName": "agent"
+    }
+  ],
+  "entityTableName": "tache",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210415201324"
+}

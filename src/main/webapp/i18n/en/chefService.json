@@ -1,0 +1,29 @@
+{
+  "gestionDemandeApp": {
+    "chefService": {
+      "home": {
+        "title": "Chef Services",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Chef Service",
+        "createOrEditLabel": "Create or edit a Chef Service",
+        "notFound": "No Chef Services found"
+      },
+      "created": "A new Chef Service is created with identifier {{ param }}",
+      "updated": "A Chef Service is updated with identifier {{ param }}",
+      "deleted": "A Chef Service is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Chef Service {{ id }}?"
+      },
+      "detail": {
+        "title": "Chef Service"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "sexe": "Sexe",
+      "email": "Email",
+      "tel": "Tel",
+      "user": "User"
+    }
+  }
+}

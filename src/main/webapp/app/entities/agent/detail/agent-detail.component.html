@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="agent">
+      <h2 data-cy="agentDetailsHeading"><span jhiTranslate="gestionDemandeApp.agent.detail.title">Agent</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ agent.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.agent.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ agent.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.agent.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ agent.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.agent.email">Email</span></dt>
+        <dd>
+          <span>{{ agent.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.agent.tel">Tel</span></dt>
+        <dd>
+          <span>{{ agent.tel }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.agent.fonction">Fonction</span></dt>
+        <dd>
+          <span>{{ agent.fonction }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionDemandeApp.agent.user">User</span></dt>
+        <dd>
+          <span>{{ agent.user?.id }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/agent', agent.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

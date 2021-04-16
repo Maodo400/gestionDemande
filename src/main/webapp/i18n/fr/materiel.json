@@ -1,0 +1,27 @@
+{
+  "gestionDemandeApp": {
+    "materiel": {
+      "home": {
+        "title": "Materiels",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Materiel",
+        "createOrEditLabel": "Créer ou éditer un Materiel",
+        "notFound": "Aucun Materiel trouvé"
+      },
+      "created": "Un nouveau Materiel a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Materiel avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Materiel avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Materiel {{ id }} ?"
+      },
+      "detail": {
+        "title": "Materiel"
+      },
+      "id": "ID",
+      "libelle": "Libelle",
+      "quantityUse": "Quantity Use",
+      "quantityStock": "Quantity Stock",
+      "tache": "Tache"
+    }
+  }
+}

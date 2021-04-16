@@ -1,0 +1,166 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-demande-heading" data-cy="DemandeCreateUpdateHeading" jhiTranslate="gestionDemandeApp.demande.home.createOrEditLabel">
+        Create or edit a Demande
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="gestionDemandeApp.demande.statut" for="field_statut">Statut</label>
+          <select class="form-control" name="statut" formControlName="statut" id="field_statut" data-cy="statut">
+            <option [ngValue]="null">{{ 'gestionDemandeApp.StatusDemande.null' | translate }}</option>
+            <option value="Ok">{{ 'gestionDemandeApp.StatusDemande.Ok' | translate }}</option>
+            <option value="En_cours">{{ 'gestionDemandeApp.StatusDemande.En_cours' | translate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="gestionDemandeApp.demande.dateDemande" for="field_dateDemande"
+            >Date Demande</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_dateDemande"
+              data-cy="dateDemande"
+              type="datetime-local"
+              class="form-control"
+              name="dateDemande"
+              formControlName="dateDemande"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="gestionDemandeApp.demande.lieu" for="field_lieu">Lieu</label>
+          <input type="text" class="form-control" name="lieu" id="field_lieu" data-cy="lieu" formControlName="lieu" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="gestionDemandeApp.demande.duree" for="field_duree">Duree</label>
+          <input type="number" class="form-control" name="duree" id="field_duree" data-cy="duree" formControlName="duree" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="gestionDemandeApp.demande.priorite" for="field_priorite">Priorite</label>
+          <select class="form-control" name="priorite" formControlName="priorite" id="field_priorite" data-cy="priorite">
+            <option [ngValue]="null">{{ 'gestionDemandeApp.EnumPriorite.null' | translate }}</option>
+            <option value="Pas_Urgent">{{ 'gestionDemandeApp.EnumPriorite.Pas_Urgent' | translate }}</option>
+            <option value="Urgent">{{ 'gestionDemandeApp.EnumPriorite.Urgent' | translate }}</option>
+            <option value="Peu_Urgent">{{ 'gestionDemandeApp.EnumPriorite.Peu_Urgent' | translate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="gestionDemandeApp.demande.causeDefaillance" for="field_causeDefaillance"
+            >Cause Defaillance</label
+          >
+          <select
+            class="form-control"
+            name="causeDefaillance"
+            formControlName="causeDefaillance"
+            id="field_causeDefaillance"
+            data-cy="causeDefaillance"
+          >
+            <option [ngValue]="null">{{ 'gestionDemandeApp.EnumCause.null' | translate }}</option>
+            <option value="Usure_Normale">{{ 'gestionDemandeApp.EnumCause.Usure_Normale' | translate }}</option>
+            <option value="Defaut_D_Utilisateur">{{ 'gestionDemandeApp.EnumCause.Defaut_D_Utilisateur' | translate }}</option>
+            <option value="Defaut_Produit">{{ 'gestionDemandeApp.EnumCause.Defaut_Produit' | translate }}</option>
+            <option value="Autres_A_Preciser">{{ 'gestionDemandeApp.EnumCause.Autres_A_Preciser' | translate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="gestionDemandeApp.demande.autresCauses" for="field_autresCauses"
+            >Autres Causes</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="autresCauses"
+            id="field_autresCauses"
+            data-cy="autresCauses"
+            formControlName="autresCauses"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="gestionDemandeApp.demande.departement" for="field_departement">Departement</label>
+          <select class="form-control" name="departement" formControlName="departement" id="field_departement" data-cy="departement">
+            <option [ngValue]="null">{{ 'gestionDemandeApp.EnumDepartement.null' | translate }}</option>
+            <option value="Genie_Civile">{{ 'gestionDemandeApp.EnumDepartement.Genie_Civile' | translate }}</option>
+            <option value="Genie_Informatique">{{ 'gestionDemandeApp.EnumDepartement.Genie_Informatique' | translate }}</option>
+            <option value="Genie_Mecanique">{{ 'gestionDemandeApp.EnumDepartement.Genie_Mecanique' | translate }}</option>
+            <option value="Batiment_Direction">{{ 'gestionDemandeApp.EnumDepartement.Batiment_Direction' | translate }}</option>
+            <option value="LPAO">{{ 'gestionDemandeApp.EnumDepartement.LPAO' | translate }}</option>
+            <option value="LMAGI">{{ 'gestionDemandeApp.EnumDepartement.LMAGI' | translate }}</option>
+            <option value="CRENT">{{ 'gestionDemandeApp.EnumDepartement.CRENT' | translate }}</option>
+            <option value="Literal8">{{ 'gestionDemandeApp.EnumDepartement.Literal8' | translate }}</option>
+            <option value="Genie_Chimique">{{ 'gestionDemandeApp.EnumDepartement.Genie_Chimique' | translate }}</option>
+            <option value="Genie_Electrique">{{ 'gestionDemandeApp.EnumDepartement.Genie_Electrique' | translate }}</option>
+            <option value="Gestion">{{ 'gestionDemandeApp.EnumDepartement.Gestion' | translate }}</option>
+            <option value="Ressources_Humaines">{{ 'gestionDemandeApp.EnumDepartement.Ressources_Humaines' | translate }}</option>
+            <option value="Caisse">{{ 'gestionDemandeApp.EnumDepartement.Caisse' | translate }}</option>
+            <option value="Autres">{{ 'gestionDemandeApp.EnumDepartement.Autres' | translate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="gestionDemandeApp.demande.typeDefaillance" for="field_typeDefaillance"
+            >Type Defaillance</label
+          >
+          <select
+            class="form-control"
+            name="typeDefaillance"
+            formControlName="typeDefaillance"
+            id="field_typeDefaillance"
+            data-cy="typeDefaillance"
+          >
+            <option [ngValue]="null">{{ 'gestionDemandeApp.EnumService.null' | translate }}</option>
+            <option value="Maconnerie">{{ 'gestionDemandeApp.EnumService.Maconnerie' | translate }}</option>
+            <option value="Electricite">{{ 'gestionDemandeApp.EnumService.Electricite' | translate }}</option>
+            <option value="Climatisation">{{ 'gestionDemandeApp.EnumService.Climatisation' | translate }}</option>
+            <option value="Plomberie">{{ 'gestionDemandeApp.EnumService.Plomberie' | translate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="gestionDemandeApp.demande.client" for="field_client">Client</label>
+          <select class="form-control" id="field_client" data-cy="client" name="client" formControlName="client">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="clientOption.id === editForm.get('client')!.value?.id ? editForm.get('client')!.value : clientOption"
+              *ngFor="let clientOption of clientsSharedCollection; trackBy: trackClientById"
+            >
+              {{ clientOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

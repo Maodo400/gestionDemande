@@ -1,0 +1,10 @@
+{
+  "gestionDemandeApp": {
+    "EnumPriorite": {
+      "null": "",
+      "Pas_Urgent": "Pas_Urgent",
+      "Urgent": "Urgent",
+      "Peu_Urgent": "Peu_Urgent"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "gestionDemandeApp": {
+    "materiel": {
+      "home": {
+        "title": "Materiels",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Materiel",
+        "createOrEditLabel": "Create or edit a Materiel",
+        "notFound": "No Materiels found"
+      },
+      "created": "A new Materiel is created with identifier {{ param }}",
+      "updated": "A Materiel is updated with identifier {{ param }}",
+      "deleted": "A Materiel is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Materiel {{ id }}?"
+      },
+      "detail": {
+        "title": "Materiel"
+      },
+      "id": "ID",
+      "libelle": "Libelle",
+      "quantityUse": "Quantity Use",
+      "quantityStock": "Quantity Stock",
+      "tache": "Tache"
+    }
+  }
+}

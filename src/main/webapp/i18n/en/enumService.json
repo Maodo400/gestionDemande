@@ -1,0 +1,11 @@
+{
+  "gestionDemandeApp": {
+    "EnumService": {
+      "null": "",
+      "Maconnerie": "Maconnerie",
+      "Electricite": "Electricite",
+      "Climatisation": "Climatisation",
+      "Plomberie": "Plomberie"
+    }
+  }
+}
